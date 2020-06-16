@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+
+  "name": "Youtube Speed Controller",
+  "description": "Control the speed of youtube videos, with no limits.",
+  "version": "1.0.0",
+  "icons": { "16": "icon_16.png",
+           "48": "icon_48.png",
+          "128": "icon_128.png" },
+           "background": {
+          "scripts": ["background.js"],
+          "persistent": false
+        },
+  
+  "page_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/watch*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+
+  "permissions": ["activeTab","tabs", "storage", "declarativeContent","*://www.youtube.com/watch*" ]
+
+}
